@@ -19,7 +19,7 @@ You should change `deployment/rbac.yaml` if you wish to restrict the service acc
 
 First create the namespace
 
-    kubectl apply -f deployment/kdaudit-namespaces.yaml
+    kubectl apply -f deployment/namespace.yaml
 
 Deploy kdaudit-operator
 
@@ -30,7 +30,7 @@ If you view the operator's pod logs you will notice that the operator complains 
 
 Apply the crd
 
-    kubectl apply -f deployment/crd.yaml
+    kubectl apply -f deployment/crd/crd.yaml
 
 The missing kdaudit crd error should be gone now.
 
