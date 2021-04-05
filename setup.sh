@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+go mod vendor
 
 kubectl delete  -f deployment/deployment.yaml
 
