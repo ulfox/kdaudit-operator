@@ -1,0 +1,38 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  namespace: kdaudit 
+  name: kdaudit-operator
+  labels:
+    app: kdaudit-operator
+    component: kdaudit-operator
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: kdaudit-operator
+rules:
+- apiGroups: ["", "apps"]
+  resources: ["*"]
+  verbs: ["*"]
+- apiGroups: ["kdaudit.k8s.io", "kdaudits.kdaudit.k8s.io"] 
+  resources: ["*"]
+  verbs: ["*"]
+- apiGroups: ["rbac.authorization.k8s.io"]
+  resources: ["*"]
+  verbs: ["*"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: kdaudit-operator
+subjects:
+- kind: ServiceAccount
+  name: kdaudit-operator
+  namespace: kdaudit
+roleRef:
+  kind: ClusterRole
+  apiGroup: rbac.authorization.k8s.io
+  name: kdaudit-operator
+
+

@@ -1,0 +1,17 @@
+apiVersion: kdaudit.k8s.io/v1alpha1
+kind: KDAudit
+metadata:
+  name: kdaudit-namespace-watcher
+  namespace: kdaudit
+spec:
+  deploymentName: kdaudit-namespace-watcher
+  replicas: 1
+  slackWebhook: "https://hooks.slack.com/services/XXXXXXXX/YYYYYYY"
+  service: "namespaceWatcher"
+  image: "local/kdaudit"
+  namespaceWatcher:
+    enabled: "false"
+    namespacesConfigMap:
+      istio-injection: enabled
+
+

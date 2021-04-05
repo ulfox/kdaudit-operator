@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: kdaudit-operator
+  namespace: kdaudit
+data:
+  workerThreads: "1"
